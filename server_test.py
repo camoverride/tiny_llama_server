@@ -1,15 +1,20 @@
 import requests
+import yaml
 
 
+
+# Load config file
+with open("config.yaml", "r") as f:
+    config = yaml.safe_load(f)
 
 # Prompt provided by the user.
 user_prompt = "my childhood in new jersey was happy. I loved the snow."
 
 # Prompt provided by the system, with user prompt inserted.
-full_prompt = f"### Human: Write a short 5-7-5 haiku (three lines) based off the following prompt: {user_prompt} ### Respond with just the poem and nothing else. Remember a haiku is just 3 lines. Assistant:"
+full_prompt = f"### Human: Write a short 5-7-5 haiku (three lines) based off the following prompt: {user_prompt} ### Respond with just the poem and nothing else. Remember a haiku is just 3 lines. Be careful to stick to the haiku format. End sentences naturally. Assistant:"
 
 # Hit the API endpoint.
-response = requests.post(url="http://localhost:5000/generate",
+response = requests.post(url=config["api_url"],
                          json={"prompt": full_prompt},
                          headers={"Content-Type": "application/json"})
 
