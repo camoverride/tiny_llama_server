@@ -28,7 +28,7 @@ Exposes the tinyllama LLM as a Python flask-restful server.
 - `python server_test.py`
 ```curl -X POST http://100.116.247.74:5000/generate \
   -H "Content-Type: application/json" \
-  -d '{"prompt": "### Human: Write a short 5-7-5 haiku about the ocean. ### Respond with just the poem and nothing else. Remember a haiku is just 3 lines. Assistant:"}'
+  -d '{"prompt": "### Human: What is the meaning of life? Assistant:"}'
 ```
 
 

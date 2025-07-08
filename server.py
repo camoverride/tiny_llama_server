@@ -43,7 +43,7 @@ class Reply(Resource):
             eos_token_id=tokenizer.eos_token_id,
             num_return_sequences=1,
             repetition_penalty=1.1,
-            max_new_tokens=25,
+            max_new_tokens=config["max_new_tokens"],
         )
 
         # Return the response
